@@ -24,6 +24,22 @@ app.get('/', (req, res) => {
     res.render('main/main');
 })
 
+app.get('/alphabet', (req, res) => {
+    res.render('alphabet/alphabet');
+})
+
+app.get('/word', (req, res) => {
+    res.render('word/word');
+})
+
+app.get('/short', (req, res) => {
+    res.render('short/short');
+})
+
+app.get('/long', (req, res) => {
+    res.render('long/long');
+})
+
 /* 이미지 업로드 어떻게 해?
 app.get('/img', (req, res) => {
     readFile('/public/image/keyboard.jpg', (err, data) => {
@@ -34,6 +50,6 @@ app.get('/img', (req, res) => {
 */
 
 
-app.listen(3000, () => {
+app.listen(2000, () => {
     console.log("Listening on port 3000!");
 })
