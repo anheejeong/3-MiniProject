@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(56, 102, 65, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.mainSquare {
+    background-color: rgba(242, 232, 207, 0.9);
+    border-radius: 10px;
+    padding: 150px 25px;
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    padding: 7vh 9vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 8vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainPage {
+    flex-direction: column;
+}
+
+.title-word {
+    animation: color-animation 4s linear infinite;
+    margin-top: 5vh;
+}
+
+.title-word-1 {
+    --color-1: #718355;
+    --color-2: #e9f5db;
+    --color-3: #97a97c;
+}
+
+.title-word-2 {
+    --color-1: #97a97c;
+    --color-2: #718355;
+    --color-3: #e9f5db;
+}
+
+.title-word-3 {
+    --color-1: #e9f5db;
+    --color-2: #97a97c;
+    --color-3: #718355;
+}
+
+@keyframes color-animation {
+    0% {
+        color: var(--color-1)
+    }
+
+    32% {
+        color: var(--color-1)
+    }
+
+    33% {
+        color: var(--color-2)
+    }
+
+    65% {
+        color: var(--color-2)
+    }
+
+    66% {
+        color: var(--color-3)
+    }
+
+    99% {
+        color: var(--color-3)
+    }
+
+    100% {
+        color: var(--color-1)
+    }
+}
+
+.producer {
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+    font-size: 10px;
+    margin-top: 3vh;
+    margin-left: 3vh;
+    color: #132a13;
+}
+
+.typingType {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0;
+    margin-top: 3vh;
+    flex-direction: column;
+
+}
+
+.btn {
+    font-family: 'Raleway', sans-serif;
+    width: 140px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.easymode {
+    margin-top: 10%;
+}
+
+.hardmode {
+    margin-top: 10%;
+}
+
+.btn:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn {
+    background-image: linear-gradient(to right, #b5c99a, #87986a, #718355, #cfe1b9);
+    box-shadow: 0 4px 15px 0 rgba(151, 169, 124, 0.75)
+}
+
+.btn:active {
+    box-shadow: none;
+    transition-duration: 0.2s;
+}
+
+li {
+    display: inline-block;
+    padding: 15px;
+}
