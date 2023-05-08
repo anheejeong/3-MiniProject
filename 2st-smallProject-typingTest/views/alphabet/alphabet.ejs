@@ -1,1 +1,85 @@
-<h1>alphabet</h1>
+<%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/alphabet.css">
+    </head>
+
+    <body>
+
+
+        <div class="mainSquare">
+            <span class="title">Alphabet Typing Test</span>
+            <div class="alphabetScreen">
+                <span class="last"></span>
+                <span class="last-2"></span>
+                <span class="current">1</span>
+                <span class="future">1</span>
+                <span class="future-2">1</span>
+            </div>
+            <div class="typing">
+                <!-- ime-mode:active => 한글키보드 우선 선택 -->
+                <input type="text" placeholder="Tying Now!" class="typingInput" onkeypress="next(event)"
+                    style="ime-mode:active;" autofocus>
+            </div>
+            <div class=" accuracy">
+                <span>정확도 : <span class="pct">0%</span></span>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            // 제일 처음 값 띄우기
+            var first, second, third, fourth, fifth
+            const characters = 'ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣㅐㅔ'
+            first = characters.charAt(Math.random() * 26)
+            second = characters.charAt(Math.random() * 26)
+            third = characters.charAt(Math.random() * 26)
+            fourth = characters.charAt(Math.random() * 26)
+            fifth = characters.charAt(Math.random() * 26)
+
+            console.log(first)
+            console.log(second)
+            console.log(third)
+            console.log(fourth)
+            console.log(fifth)
+
+            var current = document.querySelector('.current')
+            var future = document.querySelector('.future')
+            var future_2 = document.querySelector('.future-2')
+            var last = document.querySelector('.last')
+            var last_2 = document.querySelector('.last-2')
+
+            current.textContent = first
+            future.textContent = second
+            future_2.innerText = third
+            last.textContent = fourth
+            last_2.innerText = fifth
+
+            var percentage = 0
+            var pct = document.querySelector('.pct')
+
+            // input에 사용자가 typing하고 엔터를 눌렀을 때
+            function next(e) {
+                // 정확도 계산
+                console.log(document.querySelector('.typingInput').value)
+                console.log(current.textContent)
+                if (document.querySelector('.typingInput').value == current.textContent) {
+                    if (percentage == 0) percentage = 100
+                    else if (percentage != 100) percentage++
+                } else {
+                    if (percentage != 0) percentage--
+                }
+                pct.textContent = `${percentage}%`
+
+                // input value 초기화(입력받은 값 없앰)
+                document.querySelector('.typingInput').value = ''
+                // 앞으로 한 칸씩 당김
+                last.innerText = last_2.innerText
+                last_2.innerText = current.innerText
+                current.innerText = future.innerText
+                future.innerText = future_2.innerText
+                // 마지막 칸은 새로운 글자 생성
+                future_2.innerText = characters.charAt(Math.random() * 26)
+            }
+
+        </script>
+
+
+        <%- include('../partials/footer.ejs') %>

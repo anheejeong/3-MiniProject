@@ -282,7 +282,7 @@ body {
 
 .btn {
     background-image: linear-gradient(to right, #b5c99a, #87986a, #718355, #cfe1b9);
-    box-shadow: 0 4px 15px 0 rgba(151, 169, 124, 0.75)
+    box-shadow: 0 4px 15px 0 rgba(151, 169, 124, 0.75);
 }
 
 .btn:active {
