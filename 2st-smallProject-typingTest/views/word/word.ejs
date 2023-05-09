@@ -1,7 +1,30 @@
 <%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/alphabet.css">
+    </head>
+
+    <body>
+        <div class="mainSquare">
+            <span class="title">Alphabet Typing Test</span>
+            <div class="alphabetScreen">
+                <span class="last"></span>
+                <span class="last-2"></span>
+                <span class="current">1</span>
+                <span class="future">1</span>
+                <span class="future-2">1</span>
+            </div>
+            <div class="typing">
+                <!-- ime-mode:active => 한글키보드 우선 선택 -->
+                <input type="text" placeholder="Tying Now!" class="typingInput" onkeypress="next(event)"
+                    style="ime-mode:active;" autofocus>
+            </div>
+            <div class=" accuracy">
+                <span>정확도 : <span class="pct">0%</span></span>
+            </div>
+        </div>
+
+        <script>
+
+        </script>
 
 
-    <p>This is word page!</p>
-
-
-    <%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %>
