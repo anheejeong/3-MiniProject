@@ -13624,7 +13624,8 @@ fieldset:disabled .btn {
 /*# sourceMappingURL=bootstrap.min.css.map */
 
 body {
-    background-color: rgba(56, 102, 65, 1);
+    background-image: linear-gradient(to bottom, #ffc4d6, #fae0e4);
+    /*background-color: rgba(56, 102, 65, 1);*/
     display: flex;
     justify-content: center;
     align-items: center;

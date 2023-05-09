@@ -1,5 +1,6 @@
 .mainSquare {
-    background-color: rgba(242, 232, 207, 0.9);
+    background-color: #ffe5ec;
+    /*background-color: rgba(242, 232, 207, 0.9);*/
     border-radius: 10px;
     padding: 150px 25px;
     width: 80%;
@@ -14,7 +15,8 @@
 
 .title {
     font-size: 5vh;
-    color: #6c584c;
+    /*color: #6c584c;*/
+    color: #602437;
     font-weight: 500;
 }
 
@@ -89,6 +91,10 @@
 
 .typingInput::placeholder {
     text-align: center;
+}
+
+.typingInput:focus {
+    outline: none;
 }
 
 .accuracy {
