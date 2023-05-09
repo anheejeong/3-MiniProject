@@ -2,7 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-const { readFile } = require('fs');
+//const { readFile } = require('fs');
+
+const wordExample = require('./db/wordExample.js');
+const shortExample = require('./db/shortExample.js');
+const longExample = require('./db/longExample.js');
 
 // db까지 써야하는 일인가?
 mongoose.connect('mongodb://127.0.0.1:27017/typingTest')
@@ -28,16 +32,19 @@ app.get('/alphabet', (req, res) => {
     res.render('alphabet/alphabet');
 })
 
-app.get('/word', (req, res) => {
-    res.render('word/word');
+app.get('/word', async (req, res) => {
+    const words = await wordExample.find({});
+    res.render('word/word', { words });
 })
 
-app.get('/short', (req, res) => {
-    res.render('short/short');
+app.get('/short', async (req, res) => {
+    const shorts = await shortExample.find({});
+    res.render('short/short', { shorts });
 })
 
-app.get('/long', (req, res) => {
-    res.render('long/long');
+app.get('/long', async (req, res) => {
+    const longs = await longExample.find({});
+    res.render('long/long', { longs });
 })
 
 /* 이미지 업로드 어떻게 해?
