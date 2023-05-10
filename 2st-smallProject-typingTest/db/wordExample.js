@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const wordExampleSchema = new mongoose.Schema({
-    word: {
+    ex: {
         type: String,
         require: true
     }

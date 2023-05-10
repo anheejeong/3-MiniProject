@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const longExampleSchema = new mongoose.Schema({
-    long: {
+    ex: {
         type: String,
         require: true
     }

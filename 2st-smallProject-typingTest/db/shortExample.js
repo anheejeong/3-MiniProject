@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const shortExampleSchema = new mongoose.Schema({
-    short: {
+    ex: {
         type: String,
         require: true
     }
