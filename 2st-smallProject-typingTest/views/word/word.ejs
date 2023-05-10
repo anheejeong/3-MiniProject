@@ -8,9 +8,15 @@
             <div class="alphabetScreen">
                 <span class="last"></span>
                 <span class="last-2"></span>
-                <span class="current">1</span>
-                <span class="future">1</span>
-                <span class="future-2">1</span>
+                <span class="current">
+                    <%= words[0].ex %>
+                </span>
+                <span class="future">
+                    <%= words[1].ex %>
+                </span>
+                <span class="future-2">
+                    <%= words[2].ex %>
+                </span>
             </div>
             <div class="typing">
                 <!-- ime-mode:active => 한글키보드 우선 선택 -->
@@ -21,10 +27,43 @@
                 <span>정확도 : <span class="pct">0%</span></span>
             </div>
         </div>
+        '<% let index=0; %>'
 
-        <script>
+            <script>
+                //console.log('Hi')
+                //console.log("<%=words%>")
 
-        </script>
+                var current = document.querySelector('.current')
+                var future = document.querySelector('.future')
+                var future_2 = document.querySelector('.future-2')
+                var last = document.querySelector('.last')
+                var last_2 = document.querySelector('.last-2')
+                let i = 3;
+
+                function next(e) {
+                    console.log("1 : " + '<%= index %>')
+                    if (!last_2.textContent) {
+                        console.log("2 : " + '<%= index %>')
+                        last_2.innerText = current.innerText
+                        current.innerText = future.innerText
+                        future.innerText = future_2.innerText
+                        future_2.innerText = '<%= words[index].ex%>'
+                        '<%= index = index + 1; %>'
+                        console.log("3 : " + '<%= index %>')
+                    }
+                    else {
+                        console.log("4 : " + '<%= index %>')
+                        last.innerText = last_2.innerText
+                        last_2.innerText = current.innerText
+                        current.innerText = future.innerText
+                        future.innerText = future_2.innerText
+                        future_2.innerText = '<%= words[index].ex%>'
+                        '<%= index++; %>'
+                        console.log("5 : " + '<%= index %>')
+                    }
+                    console.log("6 : " + '<%= index %>')
+                }
+            </script>
 
 
-        <%- include('../partials/footer.ejs') %>
+            <%- include('../partials/footer.ejs') %>
