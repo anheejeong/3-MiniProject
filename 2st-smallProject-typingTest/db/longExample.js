@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 
 const longExampleSchema = new mongoose.Schema({
-    ex: {
+    title: {
         type: String,
         require: true
+    },
+    content: {
+        type: String,
+        requrie: true
     }
 });
 
