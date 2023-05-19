@@ -1,0 +1,69 @@
+.mainSquare {
+    background-color: #ffe5ec;
+    /*background-color: rgba(242, 232, 207, 0.9);*/
+    border-radius: 10px;
+    padding: 150px 25px;
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    padding: 7vh 9vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 5vh;
+    /*color: #6c584c;*/
+    color: #602437;
+    font-weight: 500;
+}
+
+.shortScreen {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+}
+
+.sentenceEx {
+    background-color: white;
+    margin: 5px 5px;
+    padding: 3vh 5vh;
+    border-radius: 10px;
+    color: #6c584c;
+    font-size: 3vh;
+}
+
+.typing {
+    padding-top: 7vh;
+}
+
+.typingInput {
+    width: 55vh;
+    height: 7vh;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid black;
+    text-align: center;
+    color: #6c584c;
+    font-size: 2vh;
+}
+
+.typingInput::placeholder {
+    text-align: center;
+}
+
+.typingInput:focus {
+    outline: none;
+}
+
+.pct {
+    margin-right: 4vh;
+}
+
+.time {
+    margin-left: 3vh;
+}
