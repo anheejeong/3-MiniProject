@@ -47,6 +47,12 @@ app.get('/long', async (req, res) => {
     res.render('long/long', { longs });
 })
 
+app.get('/long/:id', async (req, res) => {
+    const { id } = req.params;
+    const longs = await longExample.findById(id);
+    res.render('long/longTyping', { longs })
+})
+
 /* 이미지 업로드 어떻게 해?
 app.get('/img', (req, res) => {
     readFile('/public/image/keyboard.jpg', (err, data) => {
