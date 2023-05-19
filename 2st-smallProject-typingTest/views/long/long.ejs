@@ -1,7 +1,26 @@
 <%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/long.css">
+    </head>
 
+    <body>
+        <div class="mainSquare">
+            <div class="mainPage">
+                <div class="container">
+                    <h2 class="title">
+                        <span class="title-word title-word-1">Select</span>
+                        <span class="title-word title-word-2">Long</span>
+                        <span class="title-word title-word-3">Typing</span>
+                    </h2>
+                </div>
+                <div class="longEx">
+                    <% for(let long of longs) { %>
+                        <div class="title">
+                            <a href="/long/<%=long.id%>">
+                                <%=long.title%>
+                            </a>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
 
-    <p>This is long page!</p>
-
-
-    <%- include('../partials/footer.ejs') %>
+            <%- include('../partials/footer.ejs') %>

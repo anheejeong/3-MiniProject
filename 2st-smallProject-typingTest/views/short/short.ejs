@@ -1,7 +1,158 @@
 <%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/short.css">
+    </head>
+
+    <body>
+        <div class="mainSquare">
+            <span class="title">Short Sentence Typing Test</span>
+            <div class="shortScreen">
+                <span class="sentenceEx">
+                    <%=shorts[0].ex%>
+                </span>
+            </div>
+            <div class="typing">
+                <!-- ime-mode:active => 한글키보드 우선 선택 -->
+                <input type="text" placeholder="Tying Now!" class="typingInput" onkeydown="timecheck()"
+                    onkeyup="if(window.event.keyCode==13){next(event)}" style="ime-mode:active;" autofocus>
+            </div>
+            <div class="accuracy">
+                <span>정확도 : <span class="pct">0%</span></span>
+                <span>타수 : <span class="typingSpeed">0</span></span>
+                <span class="time">timer : <span class="timer">00:00</span></span>
+            </div>
+        </div>
+        <script>
+            var shortScreen = document.querySelector('.sentenceEx')
+            var pct = document.querySelector('.pct')
+            let list = []
+            let i = 1
+            let percentage = 0
+
+            '<% for(let short of shorts) { %>'
+            list.push('<%=short.ex%>')
+            '<% } %>'
+
+            function next(e) {
+                if (document.querySelector('.typingInput').value == list[i]) {
+                    if (percentage == 0) percentage = 100
+                    else if (percentage != 100) percentage++
+                } else {
+                    if (percentage != 0) percentage--
+                }
+                stopTimer()
+
+                pct.textContent = `${percentage}%`
+
+                shortScreen.innerText = list[i]
+                document.querySelector('.typingInput').value = ''
+                i++
+                console.log('he')
+            }
+
+            let timerScreen = document.querySelector('.timer')
+            let elapsedTimeIntervalRef;
+            let startTime;
+            let elapsedTimeWhenPaused;
+            let check = 0;
+
+            function timecheck(e) {
+                if (check == 0) {
+                    check = 1;
+                    resetTimer();
+
+                    setStartTime();
+
+                    elapsedTimeIntervalRef = setInterval(() => {
+                        timerScreen.innerText = timeAndDateHandling.getElapsedTime(startTime)
+                    }, 1000)
+                }
+            }
+
+            function resetTimer() {
+                if (typeof elapsedTimeIntervalRef !== "undefined") {
+                    clearInterval(elapsedTimeIntervalRef)
+                    elapsedTimeIntervalRef = undefined
+                }
+            }
+
+            function setStartTime() {
+                if (elapsedTimeWhenPaused) {
+                    startTime = new Date()
+
+                    startTime.setHours(startTime.getHours() - elapsedTimeWhenPaused.hours)
+                    startTime.setMinutes(startTime.getMinutes() - elapsedTimeWhenPaused.minutes)
+                    startTime.setSeconds(startTime.getSeconds() - elapsedTimeWhenPaused.seconds)
+                } else {
+                    startTime = new Date()
+                }
+            }
+
+            const timeAndDateHandling = {
+                /*
+                getElapsedTime: function (startTime) {
+                    let endTime = new Date()
+                    let timeDiff = endTime.getTime() - startTime.getTime()
+
+                    timeDiff / 1000
+
+                    let seconds = Math.floor(timeDiff % 60);
+                    let secondAsString = seconds < 10 ? "0" + seconds : seconds + ""
+
+                    timeDiff = Math.floor(timeDiff / 60)
+
+                    let minutes = timeDiff % 60
+                    let minutesAsString = minutes < 10 ? "0" + minutes : minutes + ""
+
+                    return minutesAsString + ":" + secondAsString
+                }
+                */
+                getElapsedTime: function (startTime) {
+
+                    let endTime = new Date();
+                    let timeDiff = endTime.getTime() - startTime.getTime();
+
+                    timeDiff = timeDiff / 1000;
+
+                    let seconds = Math.floor(timeDiff % 60);
+                    let secondsAsString = seconds < 10 ? "0" + seconds : seconds + "";
+
+                    timeDiff = Math.floor(timeDiff / 60);
+
+                    let minutes = timeDiff % 60;
+                    let minutesAsString = minutes < 10 ? "0" + minutes : minutes + "";
+
+                    timeDiff = Math.floor(timeDiff / 60);
+
+                    let hours = timeDiff % 24;
+
+                    timeDiff = Math.floor(timeDiff / 24);
+
+                    let days = timeDiff;
+
+                    let totalHours = hours + (days * 24); // add days to hours
+                    let totalHoursAsString = totalHours < 10 ? "0" + totalHours : totalHours + "";
+
+                    if (totalHoursAsString === "00") {
+                        return minutesAsString + ":" + secondsAsString;
+                    } else {
+                        return totalHoursAsString + ":" + minutesAsString + ":" + secondsAsString;
+                    }
+                }
+            }
+
+            function stopTimer() {
+                if (typeof elapsedTimeIntervalRef !== "undefined") {
+                    clearInterval(elapsedTimeIntervalRef)
+                    elapsedTimeIntervalRef = undefined
+                }
+                //storeElapsedTimeOnPause()
+            }
+
+            /*function storeElapsedTimeOnPause() {
+
+            }*/
+        </script>
 
 
-    <p>This is short page!</p>
 
-
-    <%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %>

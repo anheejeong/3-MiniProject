@@ -30,38 +30,47 @@
         '<% let index=0; %>'
 
             <script>
-                //console.log('Hi')
-                //console.log("<%=words%>")
-
                 var current = document.querySelector('.current')
                 var future = document.querySelector('.future')
                 var future_2 = document.querySelector('.future-2')
                 var last = document.querySelector('.last')
                 var last_2 = document.querySelector('.last-2')
-                let i = 3;
+                let i = 3, k = 0;
+                let list = [];
+                var percentage = 0
+                var pct = document.querySelector('.pct')
+
+                '<%for(let word of words) {%>'
+                list.push('<%=word.ex%>')
+                '<%}%>'
 
                 function next(e) {
-                    console.log("1 : " + '<%= index %>')
+                    if (document.querySelector('.typingInput').value == list[k]) {
+                        if (percentage == 0) percentage = 100
+                        else if (percentage != 100) percentage++
+                    } else {
+                        if (percentage != 0) percentage--
+                    }
+                    pct.textContent = `${percentage}%`
+
                     if (!last_2.textContent) {
-                        console.log("2 : " + '<%= index %>')
                         last_2.innerText = current.innerText
                         current.innerText = future.innerText
                         future.innerText = future_2.innerText
-                        future_2.innerText = '<%= words[index].ex%>'
-                        '<%= index = index + 1; %>'
-                        console.log("3 : " + '<%= index %>')
-                    }
-                    else {
-                        console.log("4 : " + '<%= index %>')
+                        future_2.innerText = list[i];
+                        i++;
+                        k++;
+                    } else {
                         last.innerText = last_2.innerText
                         last_2.innerText = current.innerText
                         current.innerText = future.innerText
                         future.innerText = future_2.innerText
-                        future_2.innerText = '<%= words[index].ex%>'
-                        '<%= index++; %>'
-                        console.log("5 : " + '<%= index %>')
+                        future_2.innerText = list[i];
+                        i++;
+                        k++;
                     }
-                    console.log("6 : " + '<%= index %>')
+
+                    document.querySelector('.typingInput').value = ''
                 }
             </script>
 
