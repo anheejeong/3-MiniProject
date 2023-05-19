@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/longTyping.css">
+    </head>
+
+    <body>
+        <div class="mainSquare">
+            <div class="mainPage">
+                <div class="container">
+                    <h2 class="title">
+                        <span>
+                            <%=longs.title%>
+                        </span>
+                    </h2>
+                </div>
+                <div class="content">
+                    <span class="one contentIn">
+                        <%=longs.content%>
+                    </span>
+                    <span class="two  contentIn">2</span>
+                    <span class="three contentIn">3</span>
+                    <span class="four contentIn">4</span>
+                </div>
+            </div>
+            <script>
+                window.onload = function () {
+                    console.log('<%=longs.content%>')
+                    /*
+                    let list = []
+                    console.log(longString)
+                    list = longString.split("\n")
+
+                    var one = document.querySelector('.one')
+                    var two = document.querySelector('.two')
+                    var three = document.querySelector('.three')
+                    var four = document.querySelector('.four')
+
+                    let i = 0
+                    one.innerText = list[i]
+                    two.innerText = list[i + 1]
+                    three.innerText = list[i + 2]
+                    four.innerText = list[i + 3]
+                    */
+                }
+
+
+            </script>
+
+            <%- include('../partials/footer.ejs') %>
