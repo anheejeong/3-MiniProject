@@ -5,6 +5,7 @@ const port = 3000
 const mongoose = require('mongoose')
 // mongoDB cluster 연결
 // cluster : login-learning
+// SSH 연결 : https://docs.github.com/ko/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 mongoose.connect('mongodb+srv://eyrt6973:h1ufa7qEbeghm2sQ@login-learning.3yfxfrs.mongodb.net/?retryWrites=true&w=majority', {
     //useNewUrlParser: true, userUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected...'))
