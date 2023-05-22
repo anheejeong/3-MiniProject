@@ -13,9 +13,7 @@
                     </h2>
                 </div>
                 <div class="content">
-                    <span class="one contentIn">
-                        <%=longs.content%>
-                    </span>
+                    <span class="one contentIn">1</span>
                     <span class="two  contentIn">2</span>
                     <span class="three contentIn">3</span>
                     <span class="four contentIn">4</span>
@@ -23,6 +21,7 @@
             </div>
             <script>
                 window.onload = function () {
+                    // XXS Protection 관련 issue인듯
                     console.log('<%=longs.content%>')
                     /*
                     let list = []
