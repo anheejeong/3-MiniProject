@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 
 const { User } = require('./DBmodels/User')
 
+const config = require('./config/key')
+
 // bodyParser로 들고온 정보를 서버에서 분석할 수 있게 함
 // application/x-www-form-urlencoded 타입으로 된 것을 분석해서 가져오게 함
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -16,7 +18,8 @@ const mongoose = require('mongoose')
 // cluster : login-learning
 // SSH 연결 : https://docs.github.com/ko/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 // DB 연결 시 현재 IP 등록 필요
-mongoose.connect('mongodb+srv://eyrt6973:h1ufa7qEbeghm2sQ@login-learning.3yfxfrs.mongodb.net/?retryWrites=true&w=majority', {
+// private => 깃허브 업로드에서 제외 필요
+mongoose.connect(config.mongoURI, {
     //useNewUrlParser: true, userUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err))
