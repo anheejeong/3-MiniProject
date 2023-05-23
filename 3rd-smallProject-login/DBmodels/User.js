@@ -11,6 +11,10 @@ const userSchema = mongoose.Schema({
     },
     password: {
         type: String,
+        minlength: 5
+    },
+    lastname: {
+        type: String,
         maxlength: 50
     },
     role: { // 관리자 확인
