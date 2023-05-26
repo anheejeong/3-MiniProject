@@ -1,4 +1,4 @@
-const { User } = require('./DBmodels/User')
+const { User } = require('../DBmodels/User')
 
 let auth = (req, res, next) => {
     // 인증 처리
@@ -13,7 +13,7 @@ let auth = (req, res, next) => {
 
         req.token = token
         req.user = user
-        next()
+        next() // 미들웨어에서 갇히기 않게 하기 위함
     })
 
     // 3. 유저가 있으면 인증 완료
@@ -21,4 +21,4 @@ let auth = (req, res, next) => {
     // 4. 유저가 없으면 인증 안 됨
 }
 
-module.exports({ auth })
+module.exports = { auth }

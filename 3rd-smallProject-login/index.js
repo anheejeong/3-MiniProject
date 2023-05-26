@@ -83,7 +83,10 @@ app.post('/api/users/login', (req, res) => {
             }
             // 2. 요청된 이메일이 db에 있다면 비밀번호가 맞는지 확인
             user.comparePassword(req.body.password, (err, isMatch) => { // => User.js
-                if (!isMatch) return res.json({ loginSuccess: false, message: "비밀번호가 틀렸습니다." })
+                if (!isMatch) return res.json({
+                    loginSuccess: false,
+                    message: "비밀번호가 틀렸습니다."
+                })
                 // 3. 비밀번호가 맞다면 유저 토큰 생성
                 // user id에 토큰 생성 -> Client는 Cookie에 token 저장, Server는 DB에 token 저장
                 // Client Cookie token과 Server DB token을 계속 체크 필요 => auth route
@@ -122,6 +125,28 @@ app.get('/api/users/auth', auth, (req, res) => { // middleware : auth, end point
         role: req.user.role,
         image: req.user.image
     })
+})
+
+// 로그아웃 route
+// 토큰 지워줘야 함
+app.get('/api/users/logout', auth, (req, res) => {
+    /*
+    User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
+        if (err) return res.json({ success: false, err })
+        return res.status(200).send({
+            success: true
+        })
+    })
+    */ // findOneAndUpdate callback 지원 x
+    User.findOneAndUpdate({ _id: req.user.id }, { token: "" })
+        .then(user => {
+            return res.status(200).send({
+                success: true
+            })
+        })
+        .catch(err => {
+            return res.json({ succss: false, err })
+        })
 })
 
 app.listen(port, () => {
