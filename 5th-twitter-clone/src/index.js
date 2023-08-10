@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from './components/App';
 // import reportWebVitals from './reportWebVitals';
 // npm i firebase@9.6.1
 // npm i react-router-dom@5.3.0
